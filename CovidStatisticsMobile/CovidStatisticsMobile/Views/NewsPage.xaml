@@ -2,11 +2,79 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CovidStatisticsMobile.Views.NewsPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!--Title-->
+        <Frame BackgroundColor="Orange"
+               HeightRequest="50"
+               Padding="0, 10, 0, 0"
+               Grid.Row="0">
+            
+            <Label Text="News"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="Title"/>
+        </Frame>
+        
+        <ScrollView Grid.Row="1">
+            <ListView x:Name="newsListView"
+                      RowHeight="300"
+                      SelectionMode="None"
+                      IsPullToRefreshEnabled="True"
+                      RefreshControlColor="Orange">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        
+                        <ViewCell>
+                            <Frame BackgroundColor="LightGray"
+                                   Margin="10, 10"
+                                   CornerRadius="10"
+                                   Padding="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        
+                                        <Frame Grid.Row="0"
+                                               Padding="15, 15, 15, 0"
+                                               BackgroundColor="Transparent">
+                                            <Image Source="{Binding urlToImage}"
+                                                   Aspect="AspectFit"/>
+                                        </Frame>
+                                        
+                                        <StackLayout Grid.Row="1">
+                                            <Label Text="{Binding title}"
+                                                   HorizontalOptions="Center"
+                                                   HorizontalTextAlignment="Center"
+                                                   FontSize="Subtitle"
+                                                   FontAttributes="Bold"
+                                                   Margin="50, 0"/>
+                                            
+                                            <Label Text="{Binding description}"
+                                                   FontSize="Caption"
+                                                   Padding="30, 0"
+                                                   HorizontalTextAlignment="Center"/>
+                                            <Label Text="{Binding publishedAt}"
+                                                   FontSize="Caption"
+                                                   Padding="20, 10"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                        </ViewCell>
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+    </Grid>
+    
 </ContentPage>

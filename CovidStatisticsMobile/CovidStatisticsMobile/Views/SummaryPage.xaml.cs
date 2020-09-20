@@ -7,19 +7,21 @@ namespace CovidStatisticsMobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SummaryPage : ContentPage
     {
+        SummaryViewModel summary;
         public SummaryPage()
         {
             InitializeComponent();
+
+            summary = new SummaryViewModel();
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            var summaryViewModel = new SummaryViewModel();
-            await summaryViewModel.GetCovid();
+            await summary.GetCovid();
 
-            BindingContext = summaryViewModel;
+            BindingContext = summary;
         }
     }
 }
