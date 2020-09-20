@@ -24,6 +24,17 @@ namespace CovidStatisticsMobile.Views
 
             newsListView.ItemsSource = news.ArticlesVM;
             newsListView.Refreshing += NewsListView_Refreshing;
+            newsListView.ItemTapped += NewsListView_ItemTapped;
+        }
+
+        private void NewsListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var item = e;
+
+            Navigation.PushAsync(new WebPage
+            {
+                BindingContext = item.Item
+            });
         }
 
         private void NewsListView_Refreshing(object sender, System.EventArgs e)

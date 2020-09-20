@@ -6,24 +6,10 @@
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <!--Title-->
-        <Frame BackgroundColor="Orange"
-               HeightRequest="50"
-               Padding="0, 10, 0, 0"
-               Grid.Row="0">
-            
-            <Label Text="News"
-                   TextColor="White"
-                   HorizontalOptions="Center"
-                   FontAttributes="Bold"
-                   FontSize="Title"/>
-        </Frame>
-        
-        <ScrollView Grid.Row="1">
+
+        <ScrollView Grid.Row="0">
             <ListView x:Name="newsListView"
                       RowHeight="300"
                       SelectionMode="None"

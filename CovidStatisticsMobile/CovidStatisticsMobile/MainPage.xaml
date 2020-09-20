@@ -5,11 +5,15 @@
              x:Class="CovidStatisticsMobile.MainPage"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
-            BarBackgroundColor="Orange"
-            BarTextColor="White"
-            android:TabbedPage.IsSwipePagingEnabled="True">
+            BarBackgroundColor="#ffffbb33"
+            BarTextColor="Black"
+            SelectedTabColor="Black"
+            android:TabbedPage.IsSwipePagingEnabled="True"
+            Title="Covid-19 RSA">
     
-    <local:SummaryPage Title="Summary"/>
-    <local:NewsPage Title="News"/>
+    <local:SummaryPage Title="Summary" 
+                       IconImageSource="Assets/tab_about.png"/>
+    <local:NewsPage Title="News"
+                    IconImageSource="Assets/tab_feed.png" />
 
 </TabbedPage>
