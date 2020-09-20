@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CovidStatisticsMobile.Views.SummaryPage">
+    
+    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!--Title-->
+        <Frame BackgroundColor="Orange"
+               HeightRequest="50"
+               Padding="0, 10, 0, 0"
+               Grid.Row="0">
+            
+            <Label Text="Summary"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="Title"/>
+        </Frame>
+        
+        <!--Global-->
+        <Frame Grid.Row="1"
+               Padding="0, 10, 0, 10"
+               BackgroundColor="Transparent">
+            <Label Text="Global"
+                   FontSize="Title"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"/>
+        </Frame>
+        
+        <!--Confirmed-->
+        <Frame BackgroundColor="#FFA500"
+               HasShadow="True"
+               CornerRadius="5"
+                BorderColor="Black"
+                HeightRequest="20"
+                Margin="20, 0"
+               Grid.Row="2">
+            
+            <Label Text="{Binding TotalConfirmed, StringFormat='Confirmed: {0:N0}'}"
+                   FontSize="17"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="Black" />
+
+        </Frame>
+        <!--Recovered-->
+        <Frame BackgroundColor="#7CFC00"
+               HasShadow="True"
+               CornerRadius="5"
+                BorderColor="Black"
+                HeightRequest="20"
+                Margin="20, 10, 20, 0"
+               Grid.Row="3">
+            
+                <Label Text="{Binding TotalRecovered, StringFormat='Recovered: {0:N0}'}"
+                   FontSize="17"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="Black" />
+        </Frame>
+
+        <!--Dead-->
+        <Frame BackgroundColor="#FF6347"
+               HasShadow="True"
+               CornerRadius="5"
+                BorderColor="Black"
+                HeightRequest="20"
+                Margin="20, 10, 20, 0"
+               Grid.Row="4">
+            
+                <Label Text="{Binding TotalDead, StringFormat='Dead: {0:N0}'}"
+                   FontSize="17"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="Black" />
+        </Frame>
+        
+        <!--South Africa-->
+        <Frame Grid.Row="5"
+               Padding="0, 10, 0, 10"
+               BackgroundColor="Transparent">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="3" Grid.ColumnSpan="2"
+                       Margin="50, 0, 0, 15"
+                       Source="https://img.icons8.com/color/48/000000/south-africa.png"/>
+                
+                <Label Text="South Africa"
+                       Grid.Column="0" Grid.ColumnSpan="4"
+                       FontSize="Title"
+                       HorizontalTextAlignment="End"
+                       FontAttributes="Bold"
+                       Margin="0, 0, 0, 15"/>
+                
+                
+                <!--Table-->
+                <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                       Text="Confirmed:"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="Subtitle"
+                       HorizontalTextAlignment="Center"/>
+                <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                       Text="{Binding RSAConfirmed, StringFormat='{0:N0}'}"
+                       FontSize="Caption"
+                       HorizontalTextAlignment="Center"/>
+
+
+                <Label Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"
+                       Text="Recovered:"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="Subtitle"
+                       HorizontalTextAlignment="Center"/>
+                <Label Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
+                       Text="{Binding RSARecovered, StringFormat='{0:N0}'}"
+                       FontSize="Caption"
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2"
+                       Text="Dead:"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="Subtitle"
+                       HorizontalTextAlignment="Center"/>
+                <Label Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2"
+                       Text="{Binding RSADead, StringFormat='{0:N0}'}"
+                       FontSize="Caption"
+                       HorizontalTextAlignment="Center"/>
+
+
+            </Grid>
+            
+        </Frame>
+        
+    </Grid>
+    
+    
+</ContentPage>
