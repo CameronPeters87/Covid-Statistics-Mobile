@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:CovidStatisticsMobile.CustomRenders;assembly=CovidStatisticsMobile"
              x:Class="CovidStatisticsMobile.Views.SummaryPage">
     
-    
-    
-    <Grid>
+    <Grid RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -137,12 +136,16 @@
                        Text="{Binding RSADead, StringFormat='{0:N0}'}"
                        FontSize="Caption"
                        HorizontalTextAlignment="Center"/>
+                
+                <local:AdBanner Size="FullBanner" 
+                                Grid.Row="3" Grid.ColumnSpan="6"/>  
 
 
             </Grid>
             
         </Frame>
         
+
     </Grid>
     
     
