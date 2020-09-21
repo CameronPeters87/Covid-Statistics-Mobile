@@ -48,6 +48,7 @@ namespace CovidStatisticsMobile.Droid.CustomRenders
                 }
                 // TODO: change this id to your admob id  
 
+                //Test id
                 adView.AdUnitId = "ca-app-pub-3940256099942544/6300978111";
 
                 //adView.AdUnitId = "ca-app-pub-5310064987382019/6615327936";
